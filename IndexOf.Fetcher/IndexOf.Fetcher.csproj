@@ -24,6 +24,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>https://github.com/samuraitruong/apache.indexof.fetcher/issues</SupportUrl>
+    <ErrorReportUrl>https://github.com/samuraitruong/apache.indexof.fetcher/issues</ErrorReportUrl>
+    <ProductName>Apache Url Fetcher</ProductName>
+    <PublisherName>Truong Nguyen</PublisherName>
+    <SuiteName>Truong Nguyen</SuiteName>
     <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
