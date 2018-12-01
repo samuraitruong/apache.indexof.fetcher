@@ -1,15 +1,41 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
-    <style>
-        button {
-            height: 30px;
-            width: 30px;
-            outline: none;
-        }
-    </style>
+    <link href="../css/options.css" rel="stylesheet" />
+    <script src="../js/jquery.js"></script>
 </head>
+
 <body>
-    <button>OPTIONS</button>
+    <div class="option__panel">
+        <h1>Apache Url Fetcher - Options</h1>
+        <h2>Allowed Extensions</h2>
+        <label class="container">*.mkv
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+        </label>
+
+        <label class="container">*.mp4
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
+
+        <label class="container">*.m4p
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
+
+        <label class="container">*.ts
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
+
+        <div>
+            <button>Save</button>
+            <button id="close">Close</button>
+        </div>
+    </div>
+    <script src="../js/options.js"></script>
 </body>
+
 </html>
