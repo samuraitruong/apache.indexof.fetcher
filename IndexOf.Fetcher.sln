@@ -5,36 +5,6 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndexOf.Fetcher", "IndexOf.Fetcher\IndexOf.Fetcher.csproj", "{06499ECF-F61E-4153-9944-6390880DF608}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ChromeExtensions", "ChromeExtensions", "{5FFD9C29-784D-496E-840C-0BC2AE901F48}"
-	ProjectSection(SolutionItems) = preProject
-		ChromeExtensions\manifest.json = ChromeExtensions\manifest.json
-		ChromeExtensions\background.js = ChromeExtensions\background.js
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{958461FB-9053-4E7A-912E-E1FE05452365}"
-	ProjectSection(SolutionItems) = preProject
-		ChromeExtensions\js\listen.js = ChromeExtensions\js\listen.js
-		ChromeExtensions\js\popup.js = ChromeExtensions\js\popup.js
-		ChromeExtensions\js\jquery.js = ChromeExtensions\js\jquery.js
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "html", "html", "{9818A4EC-F421-411B-B93D-EE616FF4BB28}"
-	ProjectSection(SolutionItems) = preProject
-		ChromeExtensions\html\popup.html = ChromeExtensions\html\popup.html
-		ChromeExtensions\options.html = ChromeExtensions\options.html
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{2DD3C088-6EE0-49E8-B47C-D0B4EE46C0F6}"
-	ProjectSection(SolutionItems) = preProject
-		ChromeExtensions\images\img16.png = ChromeExtensions\images\img16.png
-		ChromeExtensions\images\img20.png = ChromeExtensions\images\img20.png
-		ChromeExtensions\images\img24.png = ChromeExtensions\images\img24.png
-		ChromeExtensions\images\img32.png = ChromeExtensions\images\img32.png
-		ChromeExtensions\images\img48.png = ChromeExtensions\images\img48.png
-		ChromeExtensions\images\img64.png = ChromeExtensions\images\img64.png
-		ChromeExtensions\images\img128.png = ChromeExtensions\images\img128.png
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,19 +21,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2BEC57C5-2AA8-454F-ACA6-CAA2F55CBCA0}
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		Policies = $0
-		$0.TextStylePolicy = $1
-		$1.inheritsSet = null
-		$1.scope = application/xaml+xml
-		$0.XmlFormattingPolicy = $2
-		$2.inheritsSet = null
-		$2.scope = application/xaml+xml
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{958461FB-9053-4E7A-912E-E1FE05452365} = {5FFD9C29-784D-496E-840C-0BC2AE901F48}
-		{9818A4EC-F421-411B-B93D-EE616FF4BB28} = {5FFD9C29-784D-496E-840C-0BC2AE901F48}
-		{2DD3C088-6EE0-49E8-B47C-D0B4EE46C0F6} = {5FFD9C29-784D-496E-840C-0BC2AE901F48}
 	EndGlobalSection
 EndGlobal

@@ -4,32 +4,79 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IndexOf.Fetcher"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="Apache Index Of Fetcher" Height="600" Width="800">
-    
+        xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+        Title="Apache Index Of Fetcher" Height="600" Width="800" Activated="MetroWindow_Activated">
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconFontAwesome Width="22"
+                                       Height="22"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Kind="CogsSolid" />
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
     <DockPanel LastChildFill="True">
         <StatusBar DockPanel.Dock="Bottom" Height="30">
-            <Grid>
-                <Label Name="lblStatus"/>
-            </Grid>
+            <StatusBarItem>
+                <Label Name="lblStatus" Foreground="White" >Click on FETCH button to start</Label>
+            </StatusBarItem>
+
+            <Separator Width="1" Background="White" BorderThickness="1"/>
+            <StatusBarItem>
+                <TextBlock>
+                    <Run Text="Links:"></Run>
+                    <Run Text="{Binding Path=TotalLinks, Mode=OneWay}"></Run>
+                </TextBlock>
+            </StatusBarItem>
+
+            <Separator Width="1" Background="White" BorderThickness="1"/>
+            <StatusBarItem>
+                <TextBlock>
+                    <Run Text="Media:"></Run>
+                    <Run Text="{Binding Path=MediaLinks, Mode=OneWay}"></Run>
+                </TextBlock>
+            </StatusBarItem>
+            <Separator Width="1" Background="White" BorderThickness="1"/>
+            <StatusBarItem>
+                <TextBlock>
+                    <Run Text="Size:"></Run>
+                    <Run Text="{Binding Path=DownloadedKb}"></Run>
+                    <Run Text="Kb"></Run>
+                </TextBlock>
+            </StatusBarItem>
+            <Separator Width="1" Background="White" BorderThickness="1"/>
+            <StatusBarItem>
+                <Controls:MetroProgressBar Width="300" Maximum="100" Minimum="0" Value="{Binding Path=DownloadProgress, UpdateSourceTrigger=PropertyChanged}"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </StatusBarItem>
         </StatusBar>
 
         <DockPanel LastChildFill="True">
             <Grid DockPanel.Dock="Top">
-                <Button x:Name="btnFetch" Content="Fetch" HorizontalAlignment="Left" Margin="681,9,0,0" VerticalAlignment="Top" Width="92" Click="btnFetch_Click"/>
-                <TextBox x:Name="txtUrl" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="651" Text="http://dl8.heyserver.in/film/2018-10/"/>
-
+                <Button x:Name="btnFetch" Content="Fetch" HorizontalAlignment="Left" Margin="681,9,0,0.5" Width="92" Click="btnFetch_Click" Initialized="btnFetch_Initialized"/>
+                <TextBox x:Name="txtUrl"  HorizontalAlignment="Left"
+                         Height="23" Margin="10,10,0,0" TextWrapping="Wrap" 
+                         VerticalAlignment="Top" Width="651" Text="http://dl8.heyserver.in/film/"/>
             </Grid>
-        <RichTextBox x:Name="txtResults" 
-                     HorizontalAlignment="Stretch" 
-                     Margin="10,18,0,0.5" VerticalAlignment="Stretch">
-            <FlowDocument>
-                <Paragraph>
-                    <Run Text="RichTextBox"/>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
+            <avalonEdit:TextEditor
+				Name="textEditor"
+				FontFamily="Consolas"
+                ShowLineNumbers="True"
+                LineNumbersForeground="Gray"
+				FontSize="10pt"
+				SyntaxHighlighting="Javascript"
+                Margin="5,5,5,5"
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+			>
+            </avalonEdit:TextEditor>
+            
+            
         </DockPanel>
     </DockPanel>
 </Controls:MetroWindow>
