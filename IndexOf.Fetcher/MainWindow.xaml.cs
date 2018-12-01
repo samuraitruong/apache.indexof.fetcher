@@ -56,6 +56,7 @@ namespace IndexOf.Fetcher
                 _downloadProgress = value;
                 this.NotifyPropertyChange("DownloadProgress");
             } }
+        public int QueueItems => queue.Count;
         private string _url;
         private async Task DownloadSinglePage(string url)
         {
@@ -102,6 +103,8 @@ namespace IndexOf.Fetcher
                 lblStatus.Content = $"Copied {links.Count} links to clipboard";
             });
             this.NotifyPropertyChange("MediaLinks");
+
+            this.NotifyPropertyChange("QueueItems");
             string newUrl;
             if(queue.TryDequeue(out newUrl))
             {
@@ -110,7 +113,7 @@ namespace IndexOf.Fetcher
             {
                 this.Invoke(() =>
                 {
-                    btnFetch.IsEnabled = false;
+                    btnFetch.IsEnabled = true;
                 });
             }
         }

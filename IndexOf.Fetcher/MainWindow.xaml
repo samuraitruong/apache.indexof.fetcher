@@ -28,7 +28,16 @@
                 <Label Name="lblStatus" Foreground="White" >Click on FETCH button to start</Label>
             </StatusBarItem>
 
-            <Separator Width="1" Background="White" BorderThickness="1"/>
+
+            <Separator Width="1" Background="White"/>
+            <StatusBarItem>
+                <TextBlock>
+                    <Run Text="Queue:"></Run>
+                    <Run Text="{Binding Path=QueueItems, Mode=OneWay}"></Run>
+                </TextBlock>
+            </StatusBarItem>
+            
+            <Separator Width="1" Background="White" />
             <StatusBarItem>
                 <TextBlock>
                     <Run Text="Links:"></Run>
@@ -36,7 +45,7 @@
                 </TextBlock>
             </StatusBarItem>
 
-            <Separator Width="1" Background="White" BorderThickness="1"/>
+            <Separator Width="1" Background="White"/>
             <StatusBarItem>
                 <TextBlock>
                     <Run Text="Media:"></Run>

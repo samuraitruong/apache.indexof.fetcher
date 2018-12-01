@@ -13,7 +13,7 @@ namespace IndexOf.Fetcher
         {
             AllowExtensions = new List<string>()
             {
-                ".mkv", ".mp3", "mp4"
+                ".mkv", ".mp3", ".mp4", ".mov", ".avi", ".webm"  ,"m2ts"   ,".m4v", ".m4p"  ,".m4v"    ,    "mts"
             };
         }
     }

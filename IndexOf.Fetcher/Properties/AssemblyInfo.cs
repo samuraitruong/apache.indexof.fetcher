@@ -7,13 +7,13 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("IndexOf.Fetcher")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Apache Index Page URL Fetcher")]
+[assembly: AssemblyDescription("This programe will fetch all url of apage index page , it also travese down to all child pages")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("IndexOf.Fetcher")]
+[assembly: AssemblyCompany("samuraitruong@hotmail.com")]
+[assembly: AssemblyProduct("IndexOf Fetcher")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("samuraitruong@hotmail.com")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
