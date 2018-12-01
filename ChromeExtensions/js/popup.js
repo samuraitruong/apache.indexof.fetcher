@@ -31,6 +31,9 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById("message").innerText = "Found: " + x.find('a').length + " links";
       var urls = "";
       x.find('a').each((index, el) => {
+        const thisUrl = $(el).attr("href");
+        if (thisUrl.indexOf("../") >= 0) return;
+
         urls += tab.url + $(el).attr("href") + "\n";
       });
       document.getElementById("results").innerText = urls;
