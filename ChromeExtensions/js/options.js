@@ -13,7 +13,8 @@ function saveOptions() {
         .storage
         .sync
         .set({
-            "extensions": exts
+            "extensions": exts,
+            "customExtensions": $("#txtCustomExt").val()
         }, function () {
             console.log("aaa")
             window.close();
@@ -25,16 +26,18 @@ function loadOptions() {
     chrome
         .storage
         .sync
-        .get(['extensions'], function (results) {
+        .get(['extensions', 'customExtensions'], function (results) {
             console.log(results.extensions)
             $("input").each(function (index, el) {
-
                 const data = $(this).data();
-                const filter = results.extensions.find(function (x) {
-                    return x.ext == data.ext
-                });
+                const filter = results
+                    .extensions
+                    .find(function (x) {
+                        return x.ext == data.ext
+                    });
                 console.log('filter', filter);
                 $(this).prop('checked', filter.enabled);
+                $("#txtCustomExt").val(results.customExtensions || "")
             });
 
         });

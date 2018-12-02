@@ -1,6 +1,10 @@
+var settings = {
+  ".mkv": true,
+  ".mp4": true,
+  ".ts": true,
+  ".mp4": true,
+}
 document.addEventListener('DOMContentLoaded', function () {
-  ///var btnExpandFrame = document.getElementById('expandFrame');
-  //btnExpandFrame.addEventListener('click', function() {
   var close = document.getElementById('close');
   close.addEventListener('click', function () {
     window.close();
@@ -16,7 +20,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     console.log("current tab", tab)
     if (tab.title.indexOf("Index of") < 0) {
-      document.getElementById("message").innerText = "Sorry, This extension only function on Apache Index page."
+      document.getElementById("message").innerText = "Page not support";
+      $("#results").remove();
+      $("#copy").remove();
+      $("#error").show();
       return;
     }
 
@@ -24,22 +31,38 @@ document.addEventListener('DOMContentLoaded', function () {
       code: "document.body.innerHTML"
     }, function (a) {
       var html = a[0];
-      // html = html.replace("<pre>", "<div>");
-      // html.replace("</pre>", "</div>");
-      var x = $(html);
+      var jqueryInstance = $(html);
 
-      document.getElementById("message").innerText = "Found: " + x.find('a').length + " links";
-      var urls = "";
-      x.find('a').each((index, el) => {
-        const thisUrl = $(el).attr("href");
-        if (thisUrl.indexOf("../") >= 0) return;
+      chrome
+        .storage
+        .sync
+        .get(['extensions', "customExtensions"], function (results) {
+          var extensions = results.extensions || [];
+          var customExts = (results.customExtensions || "").split(',');
+          for (var x of extensions) {
+            settings[x.ext] = x.enabled
+          }
+          for (var x of customExts) {
+            if (x.indexOf(".") < 0) x = "." + x;
+            settings[x] = true
+          }
+          console.log("applied setting", settings)
 
-        urls += tab.url + $(el).attr("href") + "\n";
-      });
-      document.getElementById("results").innerText = urls;
+          var allLinks = jqueryInstance.find('a')
+          var urls = "";
+          var linkCount = 0;
+          allLinks.each((index, el) => {
+            var thisUrl = $(el).attr("href");
+            var ext = "." + thisUrl.split('.').pop();
+            if (thisUrl.indexOf("../") >= 0 || !settings[ext]) return;
 
+            urls += tab.url + $(el).attr("href") + "\n";
+            linkCount++;
+          });
+          document.getElementById("message").innerText = "Found: " + allLinks.length + " links, " + linkCount + " media links";
+          document.getElementById("results").innerText = urls;
+        });
     });
 
   });
-  //}, false);
 }, false);
